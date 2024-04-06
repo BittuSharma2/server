@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my form</title>
+</head>
+<body>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: gray;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    /* border: 1px solid brown; */
+    height: 500px;
+    width: 500px;
+    
+    border-radius: 30px;
+}
+.card-inner{
+    
+    height: 500px;
+    width: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.9999s;
+
+    border-radius: 30px;
+    background-color:rgb(96, 93, 93);
+
+    
+}
+
+.card-front,.card-back{
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+/* .card-inner:hover{
+    transform: rotateY(180deg);
+} */
+
+.card-back{
+    transform: rotateY(180deg);
+}
+
+table{
+    height: 400px;
+    width: 400px;
+    padding: 30px;
+    color: black;
+    font-size: 30px;
+}
+input{
+    /* border: none; */
+    font-size: 25px;
+    height: 45px;
+    width: 370px;
+    background-color: rgb(96, 93, 93);
+    outline: none;
+    padding: 5px;
+    /* border: 1px solid black; */
+}
+button{
+    
+    background-color: rgb(96, 93, 93) ;
+    height: 50px;
+    width: 100px;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+td{
+    padding: 5px;
+}
+h3{
+    cursor:default;
+}
+p{
+    padding: 5px;
+    color:blue;
+    position: absolute;
+    bottom: 40px;
+    right: 80px;
+}
+p:hover{
+    color: rgb(1, 1, 95);
+    transform: scale(1.1);
+    cursor: pointer;
+    
+}
+
+
+
+    </style>
+    <!-- <h1>Into to Node and MongoDB<&#47;h1>
+        <form method="post" action="/userdata">
+          <label>Enter Your Name<&#47;label><br>
+          <input type="text" name="firstName" placeholder="Enter first name..." required>
+          <input type="text" name="lastName" placeholder="Enter last name..." required>
+          <input type="submit" value="Add Name">
+        </form> -->
+
+        <div class="card">
+            <div class="card-inner" id="rotate">
+                <div class="card-front">
+                    <table>
+                        <tr>
+                    <td colspan="2"><h3>Log In</h3></tr>
+                        </tr>
+                        <!-- form send a data as a json and name attribute is important 
+                        use as a key and it input is a value like name:input value
+                        without name attribute not send data.
+                        and submit button use input tag type submit not use button. -->
+    
+                        <form method="post" action="http://localhost:3000/userlogin" id="form">
+                        <!-- <td><label for="">Email</label></td> -->
+                        <tr>
+                    <td><input type="email" name="userEmail" placeholder="Email" required></td>
+                        </tr>
+                        <!-- <td><label for="">Password</label></td> -->
+                        <tr>
+                   <td><input type="password" name="userPassword" placeholder="password" required></td>
+                        </tr>
+                        <tr class="btn">
+                    <td colspan="2"><input type="submit" value="Log in"></td>
+                        </tr>
+                        <tr class="btn">
+                            <td colspan="2"><input type="reset" value="Reset"></td>
+                        </tr>
+                    </form>
+                        <p onclick="pageflip1()">go to sign up</p>
+                    </table>
+                </div>
+                <div class="card-back">
+                    <table>
+                        <tr>
+                    <td><h3>Sign up</h3></tr>
+                        </tr>
+                        <form method="post" action="http://localhost:3000/usersignup" id="form">
+                        <!-- <td><label for="">Name</label></td> -->
+                        <tr>
+                            <td><input placeholder="Name" type="text" name="userName" required></td>
+                        </tr>
+                        <tr>
+                    <!-- <td><label for="">Email</label></td> -->
+                    <td><input placeholder="Email" type="email" name="userEmail" required></td>
+                        </tr>
+                        <!-- <td><label for="">Password</label></td> -->
+                        <tr>
+                   <td><input placeholder="password" type="password" name="userPassword" required></td>
+                        </tr>
+                        <tr class="btn">
+                    <td><input type="submit" value="Sign up"></td>
+                        </tr>
+                        <tr class="btn">
+                            <td colspan="2"><input type="reset" value="Reset"></td>
+                        </tr>
+                    </form>
+                        <p onclick="pageflip2()">go to log in</p>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!-- javascript code -->
+        <script>
+
+function pageflip1(){
+    document.getElementById("rotate").style.transform="rotateY(180deg)";
+}
+
+function pageflip2(){
+    document.getElementById("rotate").style.transform="rotateY(0deg)";
+}
+        </script>
+        
+</body>
+</html>
