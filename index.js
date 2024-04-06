@@ -51,7 +51,7 @@ const UserLogin = mongoose.model('userLogin',userLoginSchema);
 
 
 app.get("/",(req,res)=>{
-    res.sendFile(__dirname+"/code.html");
+    res.sendFile("/code.html");
 })
 
 app.post("/userlogin", async(req,res)=>{
